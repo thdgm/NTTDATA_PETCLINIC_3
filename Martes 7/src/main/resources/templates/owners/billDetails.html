@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'bills')}">
+
+  <body>
+  
+  
+    <h2>Bill Information: </h2>
+    
+  
+    <table class="table table-striped" th:object="${bill}">
+      <tr>
+        <th>Id</th>
+        <td><b th:text="*{id}"></b></td>
+      </tr>
+      <tr>
+        <th>Id Number</th>
+        <td><b th:text="*{idNumber}"></b></td>
+      </tr>
+      <tr>
+        <th>Money</th>
+        <td th:text="*{money}"></td>
+      </tr>
+      <tr>
+        <th>Payment Date</th>
+        <td th:text="*{date}"></td>
+      </tr>
+      
+    </table>
+    
+   <h2>Visits</h2>
+  
+   
+<table id="visits" class="table table-striped">
+  <thead>
+  <tr>
+    <th style="width: 150px;">Id</th>
+    <th style="width: 200px;">Date</th>
+    <th style="width: 120px">Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="visit : ${v}">
+    <td>
+      <a th:text="${visit.id}"/></a>
+    </td>
+    <td th:text="${visit.date}"/>
+    <td th:text="${visit.description}"/>
+  </tr>
+  </tbody>
+</table>
+  
+
+  
+  </body>
+
+</html>
